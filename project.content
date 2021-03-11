@@ -3,7 +3,10 @@ Axway-FTS-System-Api\%2Fupload.xml
 Axway-FTS-System-Api\%2Fupload-1.xml
 Axway-FTS-System-Api\%2Fupload-2.xml
 Axway-FTS-System-Api\%2Fupload-3.xml
-TEST_VALID_INPUTFILE_TO_AXWAYFTS\Sending-a-Valid-File-to-Axway-FTS-System.xml
+TestSuite--AxwayFTS-Testing\TC0001-Sending-a-Valid-File-and-Filecontent-to-Axway-MFT---HappyPath.xml
+TestSuite--AxwayFTS-Testing\TC0002-Sending-2-Valid-Filename-and-2-Filecontent-parameter-to-Axway-MFT.xml
+TestSuite--AxwayFTS-Testing\TC0003-Sending-2-Valid-Filenames-and-1-Filecontent-parameter-to-Axway-MFT.xml
+TestSuite--AxwayFTS-Testing\TC0004-Sending-1-Valid-Filenames-and-2-Filecontent-parameter-to-Axway-MFT.xml
 TEST_INVALID_INPUTFILE_TO_AXWAYFTS\Given-with-valid-Filename-and-file-content-other-than-text.xml
 TEST_INVALID_INPUTFILE_TO_AXWAYFTS\Given-with-valid-Filename-and--file-content-as-Spaces.xml
 TEST_INVALID_INPUTFILE_TO_AXWAYFTS\Given-with-Valid-Filename-and-no-file-content.xml
