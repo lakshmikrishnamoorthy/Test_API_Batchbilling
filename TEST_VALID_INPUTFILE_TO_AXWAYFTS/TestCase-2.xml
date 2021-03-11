@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="2d481bc7-5a90-4944-8f55-3f6afc9c2fcf" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TestCase 2" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="2d481bc7-5a90-4944-8f55-3f6afc9c2fcffileName">TestCase-2</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="REST Request" id="9c0fd0f0-4491-4806-8830-5316739606b0">
+    <con:settings/>
+    <con:config service="Axway FTS System Api" resourcePath="/axwayfts-system/v1/upload/406" methodName="Upload" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="8cadc47b-0284-418d-9de5-1d387b8f396c" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://{env}.apis.nzpost.co.nz</con:endpoint>
+        <con:request>{\r
+  "filename" : "advice_20210204.txt",\r
+  "file" : {gfgxzcxcxzc }\r
+}</con:request>
+        <con:originalUri>http://localhost/axwayfts-system/v1/upload/406</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="49ffd5d1-b879-4591-be30-0639f0c8db50">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="assertionteststep" name="Assertion" id="dcbbecb4-2556-42ac-9ea7-758593707d96">
+    <con:settings/>
+    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:entry>
+        <con:id>a17cc6c4-145e-4087-be48-ad5a4316d929</con:id>
+        <con:isGroup>false</con:isGroup>
+        <con:sourceId>9c0fd0f0-4491-4806-8830-5316739606b0</con:sourceId>
+        <con:propertyName>Response</con:propertyName>
+        <con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="a4130566-4b5a-4908-89fc-9fddb741ad5f">
+          <con:settings/>
+          <con:configuration>
+            <codes>406</codes>
+          </con:configuration>
+        </con:assertion>
+      </con:entry>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

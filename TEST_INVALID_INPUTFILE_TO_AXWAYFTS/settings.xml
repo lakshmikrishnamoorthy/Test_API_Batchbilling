@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="4412c405-ac42-413b-a9e4-669a6fdbca46" name="TEST_INVALID_INPUTFILE_TO_AXWAYFTS" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="4412c405-ac42-413b-a9e4-669a6fdbca46fileName">TEST_INVALID_INPUTFILE_TO_AXWAYFTS</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

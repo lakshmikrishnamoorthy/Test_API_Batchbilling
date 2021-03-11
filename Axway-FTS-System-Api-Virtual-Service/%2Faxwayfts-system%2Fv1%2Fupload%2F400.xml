@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction name="/axwayfts-system/v1/upload/400" method="POST" resourcePath="/axwayfts-system/v1/upload/400" id="c39570ca-ad8d-46db-8764-80f9360e01d5" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7a1fb2f3-8032-4860-9a34-6c99f99d511afileName">%2Faxwayfts-system%2Fv1%2Fupload%2F406</con:setting>
+    <con:setting id="c39570ca-ad8d-46db-8764-80f9360e01d5fileName">%2Faxwayfts-system%2Fv1%2Fupload%2F400</con:setting>
+  </con:settings>
+  <con:defaultResponse>Response 1</con:defaultResponse>
+  <con:dispatchStyle>PARAMETER</con:dispatchStyle>
+  <con:dispatchConfig/>
+  <con:dispatchXPath/>
+  <con:parameterDispatcherRuleContainer>
+    <con:ParameterDispatcherRule>
+      <con:ruleName>Rule 1</con:ruleName>
+      <con:parameterDispatcherCondition>
+        <con:parameterType>QUERY</con:parameterType>
+        <con:parameterOperationType>STARTSWITH</con:parameterOperationType>
+        <con:parameterName>file</con:parameterName>
+        <con:parameterValue>"       "</con:parameterValue>
+      </con:parameterDispatcherCondition>
+      <con:responseName>Response 2</con:responseName>
+    </con:ParameterDispatcherRule>
+  </con:parameterDispatcherRuleContainer>
+  <con:routeScript/>
+  <con:response name="Response 1" id="e32368ec-ec16-4eb1-a9c8-3f9a85c8f047" httpResponseStatus="400" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070">
+    <con:settings/>
+    <con:responseContent>{
+	message: "Invalid Filename - Filename is too short"
+}</con:responseContent>
+  </con:response>
+  <con:response name="Response 2" id="74c27718-2f0a-4ce5-ad1c-9b6675f96850" httpResponseStatus="400" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070" mediaType="application/json">
+    <con:settings/>
+    <con:responseContent>{
+	message: "Invalid File Contents - File contains no data"
+}</con:responseContent>
+  </con:response>
+</con:restMockAction>

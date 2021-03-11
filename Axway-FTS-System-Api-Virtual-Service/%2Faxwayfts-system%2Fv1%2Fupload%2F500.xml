@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction name="/axwayfts-system/v1/upload/500" method="POST" resourcePath="/axwayfts-system/v1/upload/500" id="2b985f9a-03f0-44ff-9254-6fbb1d2b61bf" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7a1fb2f3-8032-4860-9a34-6c99f99d511afileName">%2Faxwayfts-system%2Fv1%2Fupload%2F406</con:setting>
+    <con:setting id="c39570ca-ad8d-46db-8764-80f9360e01d5fileName">%2Faxwayfts-system%2Fv1%2Fupload%2F400</con:setting>
+    <con:setting id="2b985f9a-03f0-44ff-9254-6fbb1d2b61bffileName">%2Faxwayfts-system%2Fv1%2Fupload%2F500</con:setting>
+  </con:settings>
+  <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+  <con:dispatchConfig/>
+  <con:dispatchXPath/>
+  <con:routeScript/>
+  <con:response name="Response 1" id="0e0b0904-99d1-4437-afdc-d6a23cded00e" httpResponseStatus="500" dataSource="">
+    <con:settings/>
+    <con:responseContent/>
+  </con:response>
+</con:restMockAction>

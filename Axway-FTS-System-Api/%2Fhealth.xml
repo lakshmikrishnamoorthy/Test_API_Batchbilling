@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/health" path="/health" id="b381d5ff-dc11-49ba-9dc8-8b745f7a57f6" xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <con:settings>
+    <con:setting id="b381d5ff-dc11-49ba-9dc8-8b745f7a57f6fileName">%2Fhealth</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="GET" id="8bafcc55-a9c0-4198-8688-251bc03ea607" method="GET">
+    <con:description>This is endpoint will serve the purpose of testing this api is healthy.</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="05b69c97-21d2-4d62-867c-24a41ad2b73d" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://{env}.apis.nzpost.co.nz</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="848fa22e-81ed-4327-90c6-4e7c98000776" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC2" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="848fa22e-81ed-4327-90c6-4e7c98000776fileName">TC2</con:setting>
+  </con:settings>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
