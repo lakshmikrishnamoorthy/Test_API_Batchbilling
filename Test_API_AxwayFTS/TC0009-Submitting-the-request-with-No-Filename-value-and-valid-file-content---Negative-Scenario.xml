@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="9108653e-1b47-4d22-b33d-87c92299772e" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC0009 Submitting the request with No Filename value and valid file content - Negative Scenario" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="9108653e-1b47-4d22-b33d-87c92299772efileName">TC0009-Submitting-the-request-with-No-Filename-value-and-valid-file-content---Negative-Scenario</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="GIVEN Axway FTS System API is available" id="7b9cafee-69f6-4709-885d-1b8ad7853b4d">
+    <con:settings/>
+    <con:config service="Axway FTS System Api" resourcePath="/axwayfts-system/v1/health" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GIVEN Axway FTS System API is available" id="05b69c97-21d2-4d62-867c-24a41ad2b73d" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://{env}.apis.nzpost.co.nz</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/axwayfts-system/v1/health</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="6194fd75-971a-4e68-9114-06f3a291cf83" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="WHEN the user submits the request with no filename and valid file content" id="4d5c691d-28bd-403d-8424-e74eff18cb70">
+    <con:settings/>
+    <con:config service="Axway FTS System Api" resourcePath="/axwayfts-system/v1/upload/400" methodName="Upload" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="WHEN the user submits the request with no filename and valid file content" id="8cadc47b-0284-418d-9de5-1d387b8f396c" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://{env}.apis.nzpost.co.nz</con:endpoint>
+        <con:request>{\r
+  "filename" : ,\r
+  "file" : {"Testing"} \r
+}</con:request>
+        <con:originalUri>http://localhost/axwayfts-system/v1/upload/406</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="dd0bada6-cace-4d74-b78a-c54c3a719323" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>400</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="assertionteststep" name="THEN response status 400 is created" id="f82c1b50-f919-4750-a4fe-8f28150fd6ea">
+    <con:settings/>
+    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

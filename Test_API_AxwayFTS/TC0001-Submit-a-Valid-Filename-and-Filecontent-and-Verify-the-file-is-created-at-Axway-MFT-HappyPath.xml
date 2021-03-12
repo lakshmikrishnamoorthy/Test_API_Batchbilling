@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="2d16c03f-bef2-495b-9830-a7caae86a29e" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC0004 Sending 1 Valid Filenames and 2 Filecontent parameter to Axway MFT" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="4fa0ec66-6d63-4df1-b999-d89629a4d792" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC0001 Submit a Valid Filename and Filecontent and Verify the file is created at Axway MFT-HappyPath" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="2d16c03f-bef2-495b-9830-a7caae86a29efileName">TC0004-Sending-1-Valid-Filenames-and-2-Filecontent-parameter-to-Axway-MFT</con:setting>
+    <con:setting id="4fa0ec66-6d63-4df1-b999-d89629a4d792fileName">TC0001-Submit-a-Valid-Filename-and-Filecontent-and-Verify-the-file-is-created-at-Axway-MFT-HappyPath</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="restrequest" name="GIVEN Axway FTS System API is available" id="14e97a8f-8fd1-41f5-9906-e70d46bc0696">
+  <con:testStep type="restrequest" name="GIVEN Axway FTS System API is available" id="bc8c3a8f-5001-4d26-a4aa-9f8a55b6f9e0">
     <con:settings/>
     <con:config service="Axway FTS System Api" resourcePath="/axwayfts-system/v1/health" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="GIVEN Axway FTS System API is available" id="05b69c97-21d2-4d62-867c-24a41ad2b73d" mediaType="application/json">
@@ -29,10 +29,10 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="WHEN the user submits the request with two valid file name and two file content" id="734ff07c-e289-4169-8451-489b1f22ac1a">
+  <con:testStep type="restrequest" name="WHEN the user submits the request with a valid file name and content" id="37d2ef39-a1c0-4bf8-bdda-39bf3b95497e">
     <con:settings/>
     <con:config service="Axway FTS System Api" resourcePath="/axwayfts-system/v1/upload" methodName="Upload" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="WHEN the user submits the request with two valid file name and two file content" id="8cadc47b-0284-418d-9de5-1d387b8f396c" mediaType="application/json" postQueryString="false">
+      <con:restRequest name="WHEN the user submits the request with a valid file name and content" id="8cadc47b-0284-418d-9de5-1d387b8f396c" mediaType="application/json" postQueryString="false">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -40,8 +40,6 @@
         <con:request>{\r
    "filename" : "advice_20210204.txt",\r
    "file" : {"hjghjghjghjghjghjghjghghghghghghghghhghghhghgh"}\r
-   "file" : {"1234454545454sdhsjdh"}
-
 }</con:request>
         <con:originalUri>http://localhost/axwayfts-system/v1/upload</con:originalUri>
         <con:assertion type="Valid HTTP Status Codes" id="fd74fbe7-2e32-42dc-b74d-bee4d8d27ed5" name="Valid HTTP Status Codes">
@@ -66,18 +64,31 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="assertionteststep" name="THEN response status is 201 Created" id="b057f2ff-6e45-4d90-81bc-4b5f11bead7e">
+  <con:testStep type="assertionteststep" name="THEN response status is 201 Created" id="02e9e9c2-1c6e-4030-a787-97cd9c5f13d6">
     <con:settings/>
-    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-  </con:testStep>
-  <con:testStep type="manualTestStep" name="AND Validate if the file is created at AxwayFTP server" id="7c01c428-444e-48b0-bf00-ec54c15744b0">
-    <con:description>Check if the file is created with the first filename and the filecontent in Axway server and the other additional filename/filecontents are ignored.</con:description>
-    <con:settings/>
-    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:expectedResult>The File with first given File Name/Filecontent should be available at Axway server</con:expectedResult>
+    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:entry>
+        <con:id>d875aeb2-4b9d-4efb-9d25-39403e496751</con:id>
+        <con:isGroup>false</con:isGroup>
+        <con:sourceId>37d2ef39-a1c0-4bf8-bdda-39bf3b95497e</con:sourceId>
+        <con:propertyName>Response</con:propertyName>
+        <con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes 201" id="dc60559d-9d86-47a6-96be-09fd2c0d2785">
+          <con:settings/>
+          <con:configuration>
+            <codes>201</codes>
+          </con:configuration>
+        </con:assertion>
+      </con:entry>
     </con:config>
   </con:testStep>
-  <con:testStep type="manualTestStep" name="AND Validate the content of the file created" id="cbe07e69-02f6-4ffb-8156-7eb9b5cf1783">
+  <con:testStep type="manualTestStep" name="AND Validate if the file is created at AxwayFTP server" id="a97f2a1f-3b69-44b1-aa90-a439e01b13a8">
+    <con:description>Check if the file is created with the given filename and the filecontent in Axway server.</con:description>
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:expectedResult>The File should be available in Axway server</con:expectedResult>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="manualTestStep" name="AND Validate the content of the file created" id="62e222bb-5b70-4208-92dc-645d3fedc0cc">
     <con:description>Validate whether the content of the created file matches with the input filecontent.</con:description>
     <con:settings/>
     <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">

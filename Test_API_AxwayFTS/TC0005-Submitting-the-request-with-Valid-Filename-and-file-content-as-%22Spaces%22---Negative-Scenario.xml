@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="97161d2c-1975-4a27-a1b2-595d36576c8f" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC0005 Submitting the request with Valid Filename and file content as &quot;Spaces&quot; - Negative Scenario" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="97161d2c-1975-4a27-a1b2-595d36576c8ffileName">TC0005-Submitting-the-request-with-Valid-Filename-and-file-content-as-%22Spaces%22---Negative-Scenario</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="GIVEN Axway FTS System API is available" id="22a0e25f-eb92-47bd-9a98-bc6d74bfc3b5">
+    <con:settings/>
+    <con:config service="Axway FTS System Api" resourcePath="/axwayfts-system/v1/health" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GIVEN Axway FTS System API is available" id="05b69c97-21d2-4d62-867c-24a41ad2b73d" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://{env}.apis.nzpost.co.nz</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/axwayfts-system/v1/health</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="6194fd75-971a-4e68-9114-06f3a291cf83" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="WHEN the user submits the request with a valid filename and file content as Spaces" id="42e295b0-7f97-40a2-bc87-5bc021742eba">
+    <con:settings/>
+    <con:config service="Axway FTS System Api" resourcePath="/axwayfts-system/v1/upload/400" methodName="Upload" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="WHEN the user submits the request with a valid filename and file content as Spaces" id="8cadc47b-0284-418d-9de5-1d387b8f396c" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://{env}.apis.nzpost.co.nz</con:endpoint>
+        <con:request>{\r
+  "filename" : "advice_20210204.txt",\r
+  "file" : {       }\r
+}</con:request>
+        <con:originalUri>http://localhost/axwayfts-system/v1/upload/406</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="dd0bada6-cace-4d74-b78a-c54c3a719323" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>400</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="assertionteststep" name="THEN response status 400 is created" id="6a9ab0f5-153c-486b-925f-a09cb43129a3">
+    <con:settings/>
+    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:entry>
+        <con:id>66c775f9-b501-4dba-8fb7-cbde1048fedf</con:id>
+        <con:isGroup>false</con:isGroup>
+        <con:sourceId>42e295b0-7f97-40a2-bc87-5bc021742eba</con:sourceId>
+        <con:propertyName>Response</con:propertyName>
+        <con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes 400" id="8571f312-c7f9-4ab1-a129-3a00d04c3aab">
+          <con:settings/>
+          <con:configuration>
+            <codes>400</codes>
+          </con:configuration>
+        </con:assertion>
+      </con:entry>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

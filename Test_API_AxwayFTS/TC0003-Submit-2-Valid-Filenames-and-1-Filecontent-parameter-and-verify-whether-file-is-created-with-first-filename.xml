@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="4fa0ec66-6d63-4df1-b999-d89629a4d792" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC0001 Sending a Valid File and Filecontent to Axway MFT - HappyPath" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="34f31e70-b719-4925-bd9b-880c3d4e7ab9" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC0003 Submit 2 Valid Filenames and 1 Filecontent parameter and verify whether file is created with first filename" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="4fa0ec66-6d63-4df1-b999-d89629a4d792fileName">TC0001-Sending-a-Valid-File-and-Filecontent-to-Axway-MFT---HappyPath</con:setting>
+    <con:setting id="34f31e70-b719-4925-bd9b-880c3d4e7ab9fileName">TC0003-Submit-2-Valid-Filenames-and-1-Filecontent-parameter-and-verify-whether-file-is-created-with-first-filename</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="restrequest" name="GIVEN Axway FTS System API is available" id="bc8c3a8f-5001-4d26-a4aa-9f8a55b6f9e0">
+  <con:testStep type="restrequest" name="GIVEN Axway FTS System API is available" id="57e57daa-1a3d-4572-98d2-5dd066928695">
     <con:settings/>
     <con:config service="Axway FTS System Api" resourcePath="/axwayfts-system/v1/health" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="GIVEN Axway FTS System API is available" id="05b69c97-21d2-4d62-867c-24a41ad2b73d" mediaType="application/json">
@@ -29,10 +29,10 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="WHEN the user submits the request with a valid file name and content" id="37d2ef39-a1c0-4bf8-bdda-39bf3b95497e">
+  <con:testStep type="restrequest" name="WHEN the user submits the request with two valid file name and 1 file content" id="77864df3-25d1-4fda-a836-5ee131f69782">
     <con:settings/>
     <con:config service="Axway FTS System Api" resourcePath="/axwayfts-system/v1/upload" methodName="Upload" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="WHEN the user submits the request with a valid file name and content" id="8cadc47b-0284-418d-9de5-1d387b8f396c" mediaType="application/json" postQueryString="false">
+      <con:restRequest name="WHEN the user submits the request with two valid file name and 1 file content" id="8cadc47b-0284-418d-9de5-1d387b8f396c" mediaType="application/json" postQueryString="false">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -40,6 +40,7 @@
         <con:request>{\r
    "filename" : "advice_20210204.txt",\r
    "file" : {"hjghjghjghjghjghjghjghghghghghghghghhghghhghgh"}\r
+   "filename" : "test_20210204.txt",
 }</con:request>
         <con:originalUri>http://localhost/axwayfts-system/v1/upload</con:originalUri>
         <con:assertion type="Valid HTTP Status Codes" id="fd74fbe7-2e32-42dc-b74d-bee4d8d27ed5" name="Valid HTTP Status Codes">
@@ -64,18 +65,18 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="assertionteststep" name="THEN response status is 201 Created" id="02e9e9c2-1c6e-4030-a787-97cd9c5f13d6">
+  <con:testStep type="assertionteststep" name="THEN response status is 201 Created" id="33af015f-749e-4a71-a0cc-52e474f825ec">
     <con:settings/>
     <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
   </con:testStep>
-  <con:testStep type="manualTestStep" name="AND Validate if the file is created at AxwayFTP server" id="a97f2a1f-3b69-44b1-aa90-a439e01b13a8">
-    <con:description>Check if the file is created with the given filename and the filecontent in Axway server.</con:description>
+  <con:testStep type="manualTestStep" name="AND Validate if the file is created at AxwayFTP server" id="08bba94b-d782-428b-bf0b-ba8fb69b0ee0">
+    <con:description>Check if the file is created with the first filename and the filecontent in Axway server and the other additional filename/filecontents are ignored.</con:description>
     <con:settings/>
     <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:expectedResult>The File should be available in Axway server</con:expectedResult>
+      <con:expectedResult>The File with first given File Name/Filecontent should be available at Axway server</con:expectedResult>
     </con:config>
   </con:testStep>
-  <con:testStep type="manualTestStep" name="AND Validate the content of the file created" id="62e222bb-5b70-4208-92dc-645d3fedc0cc">
+  <con:testStep type="manualTestStep" name="AND Validate the content of the file created" id="f03f9059-67c4-4e8a-9b39-cf21756f1a50">
     <con:description>Validate whether the content of the created file matches with the input filecontent.</con:description>
     <con:settings/>
     <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">

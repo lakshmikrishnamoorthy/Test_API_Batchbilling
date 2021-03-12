@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="84fd6ba4-ff30-4227-a881-f3b69611c865" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC0002 Sending 2 Valid Filename and 2 Filecontent parameter to Axway MFT" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="84fd6ba4-ff30-4227-a881-f3b69611c865" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC0002 Submit 2 Valid Filenames and 2 Filecontent parameter and Verify the file is created with first given values" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="84fd6ba4-ff30-4227-a881-f3b69611c865fileName">TC0002-Sending-2-Valid-Filename-and-2-Filecontent-parameter-to-Axway-MFT</con:setting>
+    <con:setting id="84fd6ba4-ff30-4227-a881-f3b69611c865fileName">TC0002-Submit-2-Valid-Filenames-and-2-Filecontent-parameter-and-Verify-the-file-is-created-with-first-given-values</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:testStep type="restrequest" name="GIVEN Axway FTS System API is available" id="2e4e8eec-8f64-49f5-bace-e54284552953">
@@ -69,7 +69,20 @@
   </con:testStep>
   <con:testStep type="assertionteststep" name="THEN response status is 201 Created" id="c82d41c2-804d-4eb7-adf7-2f539a2fb107">
     <con:settings/>
-    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:entry>
+        <con:id>0961299b-a3c4-4632-b971-d5c5472afe60</con:id>
+        <con:isGroup>false</con:isGroup>
+        <con:sourceId>f339dc60-26ad-4a55-83f9-df250061deb5</con:sourceId>
+        <con:propertyName>Response</con:propertyName>
+        <con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="d394423f-e025-4155-a87b-0d386c9714df">
+          <con:settings/>
+          <con:configuration>
+            <codes>201</codes>
+          </con:configuration>
+        </con:assertion>
+      </con:entry>
+    </con:config>
   </con:testStep>
   <con:testStep type="manualTestStep" name="AND Validate if the file is created at AxwayFTP server" id="137dcd46-e634-46c0-aa45-03d030402bb7">
     <con:description>Check if the file is created with the first filename and the filecontent in Axway server and the other additional filename/filecontents are ignored.</con:description>
