@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="97161d2c-1975-4a27-a1b2-595d36576c8f" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Creating a file with Invalid File name" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="97161d2c-1975-4a27-a1b2-595d36576c8ffileName">Creating-a-file-with-Invalid-File-name</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="REST Request" id="ef6a7660-d23d-48d2-89db-104b7c87a412">
+    <con:settings/>
+    <con:config service="Axway FTS System Api" resourcePath="/axwayfts-system/v1/health/upload/400" methodName="Upload" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="8cadc47b-0284-418d-9de5-1d387b8f396c" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://{env}.apis.nzpost.co.nz</con:endpoint>
+        <con:request>{\r
+  "filename" : "     ",\r
+  "file" : {hfdfhgdh }\r
+}</con:request>
+        <con:originalUri>http://localhost/axwayfts-system/v1/upload/406</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="3efc916d-3039-4625-81f0-f2675119abd8" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>400</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="49ffd5d1-b879-4591-be30-0639f0c8db50">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

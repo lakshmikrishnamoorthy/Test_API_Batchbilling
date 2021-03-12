@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="344edd8a-bc78-421b-a73b-9410d95d5d82" name="Axway FTS System Api" type="rest_ex" wadlVersion="https://swagger.io/swagger2/specification" definitionUrl="file:/C:/Users/KrishnLa/Downloads/axwaysystem-1.0.2-oas/api.json" basePath="/axwayfts-system/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>System API to place Billpay Advice files onto Axway FTS sFTP server</con:description>
+  <con:settings>
+    <con:setting id="344edd8a-bc78-421b-a73b-9410d95d5d82fileName">Axway-FTS-System-Api</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="file:/C:/Users/KrishnLa/Downloads/axwaysystem-1.0.2-oas/api.json">
+    <con:part>
+      <con:url>file:/C:/Users/KrishnLa/Downloads/axwaysystem-1.0.2-oas/api.json</con:url>
+      <con:content>{
+  "swagger": "2.0",
+  "info": {
+    "title": "Axway FTS System Api",
+    "description": "System API to place Billpay Advice files onto Axway FTS sFTP server",
+    "version": "1.0.0"
+  },
+  "host": "{env}.apis.nzpost.co.nz",
+  "basePath": "/axwayfts-system/v1",
+  "x-amf-baseUriParameters": {
+    "env": {
+      "enum": [
+        "dev",
+        "qa",
+        "uat",
+        "prod"
+      ]
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/upload": {
+      "post": {
+        "operationId": "Upload",
+        "description": "Upload file to Axway FTS",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "message_id",
+            "description": "A UUID passed from consumer.",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "x-amf-mediaType": "multipart/form-data",
+            "in": "body",
+            "name": "generated",
+            "schema": {
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "filename",
+                "file"
+              ],
+              "properties": {
+                "filename": {
+                  "title": "filename",
+                  "description": "Filename of the input file",
+                  "example": "advice_20210204.txt",
+                  "type": "string"
+                },
+                "file": {
+                  "title": "file",
+                  "description": "Input file in binary form",
+                  "type": "object",
+                  "additionalProperties": true,
+                  "required": [
+                    "file"
+                  ],
+                  "properties": {
+                    "file": {
+                      "description": "File to upload",
+                      "type": "file",
+                      "x-amf-fileTypes": [
+                        "application/octet-stream"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          },
+          "400": {
+            "description": "Bad request, missing or invalid parameters.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "success": false,
+                "message_id": "ded71a90-0e36-11e5-aa3a-02b923c21ef3",
+                "errors": [
+                  {
+                    "code": "400",
+                    "message": "Bad Request",
+                    "details": "ID is not supplied"
+                  }
+                ]
+              },
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "success",
+                "message_id",
+                "errors"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "message_id": {
+                  "type": "string"
+                },
+                "errors": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "required": [
+                        "code",
+                        "message",
+                        "details"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "details": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "success": false,
+                "message_id": "ded71a90-0e36-11e5-aa3a-02b923c21ef3",
+                "errors": [
+                  {
+                    "code": "401",
+                    "message": "Invalid credentials",
+                    "details": "Invalid credentials"
+                  }
+                ]
+              },
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "success",
+                "message_id",
+                "errors"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "message_id": {
+                  "type": "string"
+                },
+                "errors": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "required": [
+                        "code",
+                        "message",
+                        "details"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "details": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "success": false,
+                "message_id": "ded71a90-0e36-11e5-aa3a-02b923c21ef3",
+                "errors": [
+                  {
+                    "code": "404",
+                    "message": "Resource is not found",
+                    "details": "User is not found"
+                  }
+                ]
+              },
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "success",
+                "message_id",
+                "errors"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "message_id": {
+                  "type": "string"
+                },
+                "errors": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "required": [
+                        "code",
+                        "message",
+                        "details"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "details": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "success": false,
+                "message_id": "ded71a90-0e36-11e5-aa3a-02b923c21ef3",
+                "errors": [
+                  {
+                    "code": "405",
+                    "message": "Invalid method requested",
+                    "details": "Method not allowed"
+                  }
+                ]
+              },
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "success",
+                "message_id",
+                "errors"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "message_id": {
+                  "type": "string"
+                },
+                "errors": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "required": [
+                        "code",
+                        "message",
+                        "details"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "details": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Invalid Accept header content type.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "success": false,
+                "message_id": "ded71a90-0e36-11e5-aa3a-02b923c21ef3",
+                "errors": [
+                  {
+                    "code": "406",
+                    "message": "Invalid Accept header content type",
+                    "details": "Content type is invalid"
+                  }
+                ]
+              },
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "success",
+                "message_id",
+                "errors"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "message_id": {
+                  "type": "string"
+                },
+                "errors": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "required": [
+                        "code",
+                        "message",
+                        "details"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "details": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Media type not supported error.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "success": false,
+                "message_id": "ded71a90-0e36-11e5-aa3a-02b923c21ef3",
+                "errors": [
+                  {
+                    "code": "415",
+                    "message": "Unsupported media type",
+                    "details": "Media type not supported error"
+                  }
+                ]
+              },
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "success",
+                "message_id",
+                "errors"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "message_id": {
+                  "type": "string"
+                },
+                "errors": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "required": [
+                        "code",
+                        "message",
+                        "details"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "details": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "success": false,
+                "message_id": "ded71a90-0e36-11e5-aa3a-02b923c21ef3",
+                "errors": [
+                  {
+                    "code": "500",
+                    "message": "Internal server error",
+                    "details": "Unexpected error has happened, please check the error log"
+                  }
+                ]
+              },
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "success",
+                "message_id",
+                "errors"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "message_id": {
+                  "type": "string"
+                },
+                "errors": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "required": [
+                        "code",
+                        "message",
+                        "details"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "details": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Not implemented",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "success": false,
+                "message_id": "ded71a90-0e36-11e5-aa3a-02b923c21ef3",
+                "errors": [
+                  {
+                    "code": "501",
+                    "message": "Not Implemented",
+                    "details": "Not Implemented"
+                  }
+                ]
+              },
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "success",
+                "message_id",
+                "errors"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "message_id": {
+                  "type": "string"
+                },
+                "errors": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "required": [
+                        "code",
+                        "message",
+                        "details"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "details": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "common.basic": []
+          }
+        ]
+      }
+    },
+    "/health": {
+      "get": {
+        "description": "This is endpoint will serve the purpose of testing this api is healthy.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "success": true,
+                "message_id": "ded71a90-0e36-11e5-aa3a-02b923c21ef3"
+              },
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "success",
+                "message_id"
+              ],
+              "properties": {
+                "success": {
+                  "description": "Indicate the request is successfully processed by the API",
+                  "type": "boolean"
+                },
+                "message_id": {
+                  "description": "A unique message ID has the value of the request header message_id",
+                  "type": "string",
+                  "pattern": "^([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})$"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "common.basic": []
+          }
+        ]
+      }
+    }
+  }
+}</con:content>
+      <con:type>https://swagger.io/swagger2/specification</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>http://localhost:8092/</con:endpoint>
+    <con:endpoint>https://{env}.apis.nzpost.co.nz</con:endpoint>
+  </con:endpoints>
+</con:interface>

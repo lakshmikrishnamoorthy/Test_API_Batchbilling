@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction name="/axwayfts-system/v1/health" method="GET" resourcePath="/axwayfts-system/v1/health" id="dff07589-907e-46a1-9f01-840aa71d94ce" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="dff07589-907e-46a1-9f01-840aa71d94cefileName">%2Faxwayfts-system%2Fv1%2Fhealth</con:setting>
+  </con:settings>
+  <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+  <con:dispatchConfig/>
+  <con:dispatchXPath/>
+  <con:routeScript/>
+  <con:response name="Response 1" id="58608306-69d3-407e-a1f0-1646555a2fa1" httpResponseStatus="200">
+    <con:settings/>
+    <con:responseContent/>
+  </con:response>
+</con:restMockAction>

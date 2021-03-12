@@ -1,0 +1,7 @@
+Given-with-valid-Filename-and--file-content-as-Spaces.xml
+Given-with-Valid-Filename-and-no-file-content.xml
+Given-with-valid-filename-and-file-content-but-without-quotes.xml
+Given-with-filename-as-Spaces-and-Valid-Filecontent.xml
+Given-a-file-with-no-filename.xml
+Given-a-file-with-filename-starting-with-Invalid-characters.xml
+Given-a-file-with-two-filenames.xml

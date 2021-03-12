@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="026866ce-361c-481b-ac4d-e081ed7a5c05" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Given with Valid Filename and no file content" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="026866ce-361c-481b-ac4d-e081ed7a5c05fileName">Given-with-Valid-Filename-and-no-file-content</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="REST Request" id="92ab108e-4934-4e8d-88a7-a0ccf030b0e3">
+    <con:settings/>
+    <con:config service="Axway FTS System Api" resourcePath="/axwayfts-system/v1/upload/400" methodName="Upload" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="8cadc47b-0284-418d-9de5-1d387b8f396c" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://{env}.apis.nzpost.co.nz</con:endpoint>
+        <con:request>{\r
+  "filename" : "advice_20210204.txt",\r
+  "file" : {       }\r
+}</con:request>
+        <con:originalUri>http://localhost/axwayfts-system/v1/upload/406</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="dd0bada6-cace-4d74-b78a-c54c3a719323" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>400</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
